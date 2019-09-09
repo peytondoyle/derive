@@ -1,14 +1,26 @@
-<h1>Welcome to Dérive <%= @user.name %>!</h1>
+<h1>Welcome to <i>Dérive</i>! </h1>
+<h3>Let's get you started on an adventure <%= @user.name %>!</h3>
 
 <%= form_tag "/search", method: "get" %>
 <%= label_tag :interests %><br>
-<%= select_tag :interests, options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 10, prompt: 'Select interests' %> <br>
+<%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7, prompt: 'Select interests' %> <br>
 <%= label_tag :locales %><br>
-<%= select_tag :locales, options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 7, prompt: 'Select locales' %> <br>
+<%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5, prompt: 'Select locales' %> <br>
 
 <%= label_tag :budget %><br>
-<%= select_tag :budget, options_for_select(["$", "$$", "$$$", "$$$$"]), prompt: 'Select a budget'%><br>
+<%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), prompt: 'Select a budget'%><br>
 <%= label_tag :english_speaking? %><br>
-<%= check_box_tag  :english? %><br>
+<%= check_box_tag  "search[english?]" %><br>
+<%= hidden_field_tag :user_id, @user.id %>
 
 <%= submit_tag 'Search for Destinations'%> <br>
+
+<h3>Destinations:</h3>
+<% if !@search.nil? %>
+  <%= "its not empty!" %>
+  <% end %>
+
+<ul>
+<% @destinations.each do |d| %>
+<li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>
+  <% end %> </ul>
