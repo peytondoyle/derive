@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_190209) do
   end
 
   create_table "locales", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
