@@ -73,7 +73,7 @@ skiing = Interest.find_or_create_by(name: "Skiing")
 snowboarding = Interest.find_or_create_by(name: "Snowboarding")
 
 ###Assocations:User-Destination
-association1
+
 
 ###Assocations:User-Interest
 

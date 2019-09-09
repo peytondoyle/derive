@@ -1,9 +1,14 @@
 <h1>Welcome to Dérive <%= @user.name %>!</h1>
 
-
 <%= form_tag "/search", method: "get" %>
-<%= collection_select :interests, :id, Interest.all, :id, :name %>
-<%= collection_select :locales, :id, Locale.all, :id, :name %>
-<%= collection_select :locales, :id, Locale.all, :id, :name %>
-<%= check_box_tag  :english? %>
-<%= submit_tag 'Search Destinations'%>
+<%= label_tag :interests %><br>
+<%= select_tag :interests, options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 10, prompt: 'Select interests' %> <br>
+<%= label_tag :locales %><br>
+<%= select_tag :locales, options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 7, prompt: 'Select locales' %> <br>
+
+<%= label_tag :budget %><br>
+<%= select_tag :budget, options_for_select(["$", "$$", "$$$", "$$$$"]), prompt: 'Select a budget'%><br>
+<%= label_tag :english_speaking? %><br>
+<%= check_box_tag  :english? %><br>
+
+<%= submit_tag 'Search for Destinations'%> <br>

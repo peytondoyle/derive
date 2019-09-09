@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @destinations = Destination.all
+  end
+
+  def search
+
+    redirect_to user_path(@user)
   end
 
   def edit
