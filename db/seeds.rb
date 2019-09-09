@@ -32,7 +32,6 @@ guatemala_city = Destination.find_or_create_by(city: "Guatemala City", country: 
 austin = Destination.find_or_create_by(city: "Austin", country: "United States", english: true, image: "https://cdn.thecrazytourist.com/wp-content/uploads/2019/03/ccimage-shutterstock_769311505.jpg", budget: "$$", group: "Adult Group")
 marrakesh = Destination.find_or_create_by(city: "Marrakesh", country: "Morocco", english: false, image: "https://www.worldtravelguide.net/wp-content/uploads/2007/03/shu-hero-778448884-1440x823.jpg", budget: "$$", group: "Single")
 budapest = Destination.find_or_create_by(city: "Budapest", country: "Hungary", english: false, image: "https://brightcove04pmdo-a.akamaihd.net/5104226627001/5104226627001_5515999951001_5214933106001-vs.jpg?pubId=5104226627001&videoId=5214933106001", budget: "$$", group: "Single")
->>>>>>> seed_data
 
 ###Locales
 city = Locale.find_or_create_by(name: "City")
@@ -74,6 +73,7 @@ skiing = Interest.find_or_create_by(name: "Skiing")
 snowboarding = Interest.find_or_create_by(name: "Snowboarding")
 
 ###Assocations:User-Destination
+association1
 
 ###Assocations:User-Interest
 
