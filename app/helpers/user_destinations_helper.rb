@@ -1,0 +1,2 @@
+module UserDestinationsHelper
+end

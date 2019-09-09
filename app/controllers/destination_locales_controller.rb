@@ -1,0 +1,2 @@
+class DestinationLocalesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class UserDestinationsController < ApplicationController
+end

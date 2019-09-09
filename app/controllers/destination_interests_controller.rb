@@ -1,0 +1,2 @@
+class DestinationInterestsController < ApplicationController
+end
