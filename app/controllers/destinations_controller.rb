@@ -5,6 +5,6 @@ class DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.all
-    @alpha_dest = @destinations.sort
+    @alpha_dest = Destination.all.sort_by { |d| d["city"] }
   end
 end
