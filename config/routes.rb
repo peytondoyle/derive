@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/', to: "application#home", as: :home
-  get '/search', to: 'users#search', as: 'search'
-  get '/destination_search', to: "application#search", as: :destination_search
+  get '/searchresults', to: 'application#results', as: 'results'
+  get '/destination_search', to: "application#search", as: 'search'
   resources :destination_locales
   resources :locales
   resources :destination_interests
