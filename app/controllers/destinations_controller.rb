@@ -5,5 +5,6 @@ class DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.all
+    @alpha_dest = @destinations.sort
   end
 end
