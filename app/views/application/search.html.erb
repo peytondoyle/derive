@@ -5,7 +5,7 @@
   <h3>Let's get you started on an adventure!</h3>
 <% end %>
 
-<%= form_tag "/searchresults", method: "get" %>
+<%= form_tag "/search_results", method: "get" %>
 <%= label_tag :interests %><br>
 <%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7, prompt: 'Select interests' %> <br>
 <%= label_tag :locales %><br>

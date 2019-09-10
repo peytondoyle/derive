@@ -1,36 +1,33 @@
 
-<h1>Welcome to <i>Dérive Destination Finder</i>! </h1>
-<% if @user %>
-  <h3>Let's get you started on an adventure <%= @user.name %>!</h3>
+<h1>Welcome to <i>Dérive</i>! </h1>
+<h3>Hello <%= @user.name %>!</h3>
+
+<p>Your Interests:</p>
+<% if @user.interests.empty? %>
+<p><b>Select some interests!</b></p>
 <% else %>
-  <h3>Let's get you started on an adventure!</h3>
+  <ul>
+    <% @user.interests.each do |i| %>
+    <li><%= i.name %></li>
+    <% end %>
+  </ul>
 <% end %>
+<%= form
+ <hr>
 
-<%= form_tag "/search", method: "get" %>
-<%= label_tag :interests %><br>
-<%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7, prompt: 'Select interests' %> <br>
-<%= label_tag :locales %><br>
-<%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5, prompt: 'Select locales' %> <br>
+<p>Selected Destinations:</p>
+<% if @user.destinations.empty? %>
+<p><b>Select some destinations!</b></p>
+<% else %>
+  <ul>
+    <% @user.destinations.each do |d| %>
+    <li><%= link_to "#{d.city} in #{d.country}", destination_path(d) %></li>
+    <% end %>
+  </ul>
+<% end %> <hr>
 
-<%= label_tag :budget %><br>
-<%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), include_blank: 'Select a budget'%><br>
-<%= label_tag :english_speaking? %><br>
-<%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br>
-<%= hidden_field_tag :user_id, @user.id %><br>
-
-<b><%= submit_tag 'Search for Destinations'%></b> <br>
-
-<% if !@search.empty? %>
-    <h3>Destinations filtered by your preferences:</h3>
-    <ul>
-    <% @destinations.each do |d, value| %>
-    <li><%= link_to "#{d.city} in #{d.country} with #{value} preference matches!", destination_path(d)%></li>
-    <% end %> </ul>
-
-  <% else %>
-    <h3>Destinations:</h3>
-    <ul>
-    <% @destinations.each do |d| %>
-    <li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>
-    <% end %> </ul>
-<% end %>
+<h3>Destinations Recommendations:</h3>
+<ul>
+<% @destinations.each do |d| %>
+<li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>
+<% end %> </ul>
