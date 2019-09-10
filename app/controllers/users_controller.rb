@@ -15,9 +15,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @destinations = Destination.all
-    @search = [] #to allow for check if filters exists
+    @destinations = @user.interested_destinations
   end
+
+
 
   def edit
 

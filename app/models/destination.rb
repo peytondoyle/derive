@@ -26,12 +26,12 @@ class Destination < ApplicationRecord
       end
     end
 
-    if !searchparams[:budget].nil?
+    if !searchparams[:budget].empty?
       destinations << Destination.where(budget: searchparams[:budget])
     end
 
 
-    if !searchparams[:english?].nil?
+    if !searchparams[:english?].empty?
       destinations << Destination.where(english: searchparams[:english?])
     end
 

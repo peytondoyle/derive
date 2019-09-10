@@ -23,7 +23,7 @@
 <% end %>
 
 <div class="row4">
-  <%= form_tag "/searchresults", method: "get" %>
+  <%= form_tag "/search_results", method: "get" %>
   <div class="column4" style="background-color:#aaa;">
     <h2>Interests</h2>
     <i>What do you like to do?</i><br>
@@ -42,14 +42,6 @@
     <%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br>
     <b><%= submit_tag 'Search for Destinations'%></b> <br>
   </div>
-
-
-
-
-
-
-
-
 
 <% if !@search.empty? %>
     <h3>Destinations filtered by your preferences:</h3>

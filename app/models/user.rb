@@ -6,4 +6,13 @@ class User < ApplicationRecord
 
     validates_presence_of :name
 
+    def interested_destinations
+      interestdestinations = []
+      self.interests.ids.each do |i|
+        interests = Destination.joins(:interests).where("interests.id = ?", i)
+        interestdestinations << interests
+      end
+      interestdestinations.flatten.uniq
+    end
+
 end
