@@ -1,0 +1,12 @@
+<h1>Destinations</h1>
+<h3>Learn more about all of the travel destinations <i>Dérive</i> features.</h3>
+
+<ul>
+<% @destinations.each do |destination| %>
+<li><p><%= link_to destination.city, destination_path(destination.id) %></p></li>
+<% end %>
+</ul>
+
+<form action="/">
+  <input type="submit" value="Return Home"/>
+</form>

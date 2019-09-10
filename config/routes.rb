@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: "application#home", as: :home
   resources :destination_locales
   resources :locales
   resources :destination_interests
