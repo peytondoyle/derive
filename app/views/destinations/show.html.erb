@@ -1,0 +1,22 @@
+<h1>Learn more about <i><%= @destination.city %></i>! </h1>
+
+<img src="<%=@destination.image %>" style="width:500px;">
+<h2><%= @destination.city %>, <%= @destination.country %></h2>
+
+<h3>Fast Facts</h3>
+<hr width="20%" align="left">
+
+<strong>Is English primarily spoken in <%= @destination.city %>?</strong>
+  <% if @destination.english == true %>
+    <p>Yes</p>
+  <% else @destination.english == false %>
+    <p>No</p>
+  <% end %>
+<strong>How expensive is <%= @destination.city %>?</strong>
+  <p><%= @destination.budget %></p>
+<strong>What is the ideal travel group for <%= @destination.city %>?</strong>
+  <p><%= @destination.group %></p>
+
+<form action="destinations_path">
+  <input type="submit" value="Return to All Destinations" />
+</form>
