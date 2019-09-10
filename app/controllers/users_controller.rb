@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @search = [] #to allow for check if filters exists
       redirect_to user_path(@user)
     else
       render :new
@@ -17,11 +16,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @destinations = Destination.all
+    @search = [] #to allow for check if filters exists
   end
 
   def search
-    @destinations = Destination.search(params[:search]).flatten
-    @search = params[:search]
+    @destinations = Destination.search(params[:search])
+    #check in the event that search params are empty
+    if @destinations == Destination.all
+      @search = []
+    else
+      @search = params[:search]
+    end
     @user = User.find(params[:user_id])
     render :show
   end
