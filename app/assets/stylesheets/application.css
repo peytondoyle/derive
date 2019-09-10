@@ -14,6 +14,31 @@
  *= require_self
  */
 
- div.field_with_errors {
+div.field_with_errors {
    display: inline;
  }
+
+menu {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+   width: 500px;
+}
+
+menuitem {
+  float: left;
+}
+
+menuitem a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+}
+
+menuitem a:hover {
+  background-color: #FD0CC8;
+}
