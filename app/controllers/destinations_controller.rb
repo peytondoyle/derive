@@ -7,4 +7,6 @@ class DestinationsController < ApplicationController
     @destinations = Destination.all
     @alpha_dest = Destination.all.sort_by { |d| d["city"] }
   end
+
+
 end

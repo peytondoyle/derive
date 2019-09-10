@@ -19,18 +19,6 @@ class UsersController < ApplicationController
     @search = [] #to allow for check if filters exists
   end
 
-  def search
-    @destinations = Destination.search(params[:search])
-    #check in the event that search params are empty
-    if @destinations == Destination.all
-      @search = []
-    else
-      @search = params[:search]
-    end
-    @user = User.find(params[:user_id])
-    render :show
-  end
-
   def edit
 
   end
