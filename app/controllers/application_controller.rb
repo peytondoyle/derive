@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
+  helper_method :random_destination
+  
   def home
+    random_destination
+  end
+
+  def random_destination
     @destinations = Destination.all
     @random = @destinations.sample
   end
@@ -19,6 +25,4 @@ class ApplicationController < ActionController::Base
     end
     render :search
   end
-
-
 end

@@ -1,22 +1,55 @@
-<h1>Welcome to <i>Dérive Destination Finder</i>! </h1>
+<div id="wrap">
+<div id="left_col">
+  <br><img src="http://picasion.com/gl/89/bFTz.gif"><br>
+  <i>your travel companion to destinations across the globe</i><br><br>
+  <menu>
+    <menuitem><a href="/">Home</a></menuitem>
+    <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
+    <menuitem><a href="/destinations">Dérive Destinations</a></menuitem>
+    <menuitem><a href="/users/new">Contact</a></menuitem>
+    <menuitem><a href="/users/login">Login</a></menuitem>
+  </menu>
+<% random = random_destination %>
+<div>
+  <img src="<%= random.image %>" style="width:600px;"><br>
+  <figcaption><center><%= random.city %>, <%= random.country %> •  <%= link_to "Learn more", destination_path(random.id) %></center>
+</div>
+
+<h1><i>Dérive</i> DestinationFinder™!</h1>
 <% if @user %>
-  <h3>Let's get you started on an adventure <%= @user.name %>!</h3>
+  <i><%= @user.name %>, search for your next curated destination using the interactive search form below.</i>
 <% else %>
-  <h3>Let's get you started on an adventure!</h3>
+  <i>Search for your next curated destination using the interactive search form below.</i>
 <% end %>
 
-<%= form_tag "/searchresults", method: "get" %>
-<%= label_tag :interests %><br>
-<%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7, prompt: 'Select interests' %> <br>
-<%= label_tag :locales %><br>
-<%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5, prompt: 'Select locales' %> <br>
+<div class="row4">
+  <%= form_tag "/searchresults", method: "get" %>
+  <div class="column4" style="background-color:#aaa;">
+    <h2>Interests</h2>
+    <i>What do you like to do?</i><br>
+    <%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7 %><br>
+</div>
+  <div class="column4" style="background-color:#bbb;">
+    <h2>Locales</h2>
+    <i>What type of environment excites you?</i><br><br>
+    <%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5, prompt: 'Select locales' %> <br>
+  </div>
+  <div class="column4" style="background-color:#ccc;">
+    <h2>Column 3</h2>
+    <%= label_tag :budget %><br>
+    <%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), include_blank: 'Select a budget'%><br>
+    <%= label_tag :english_speaking? %><br>
+    <%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br>
+    <b><%= submit_tag 'Search for Destinations'%></b> <br>
+  </div>
 
-<%= label_tag :budget %><br>
-<%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), include_blank: 'Select a budget'%><br>
-<%= label_tag :english_speaking? %><br>
-<%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br>
 
-<b><%= submit_tag 'Search for Destinations'%></b> <br>
+
+
+
+
+
+
 
 <% if !@search.empty? %>
     <h3>Destinations filtered by your preferences:</h3>

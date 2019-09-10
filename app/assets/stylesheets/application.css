@@ -24,7 +24,8 @@ menu {
    padding: 0;
    overflow: hidden;
    background-color: #333;
-   width: 500px;
+   width: 600px;
+   right: 100px;
 }
 
 menuitem {
@@ -37,8 +38,39 @@ menuitem a {
   text-align: center;
   padding: 10px 14px;
   text-decoration: none;
+  padding-left: 21px;
+  padding-right: 21px;
 }
 
 menuitem a:hover {
   background-color: #FD0CC8;
 }
+
+#wrap {
+   width:1250px;
+   margin:0 auto;
+}
+
+#left_col {
+   float:left;
+   width:600px;
+}
+
+.column4 {
+  float: left;
+  width: 30%;
+  height: 250px;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row4:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+div.tiny {
+  font-size: small;
+}
+
