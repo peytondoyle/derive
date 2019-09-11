@@ -1,0 +1,22 @@
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.full_messages.each do |m| %>
+  <li><%= m %>
+  <% end %> </li></ul>
+  <% end %>
+
+
+
+<%= form_for @user do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+<%= f.label :username %><br>
+<%= f.text_field :username %><br>
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+<%= f.label :interests %><br>
+<%= f.collection_check_boxes(:interests, Interest.all ,:id, :name) do |b| %>
+<%= b.label(:"data-value" => b.value) { b.check_box + b.text } %><br>
+<% end %><br>
+<%= f.submit %>
+<% end %>

@@ -5,10 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.new(user_params)
     if @user.save
-      @user.interests = params[:interests]
+      session[:user] = @user.username
       redirect_to user_path(@user)
     else
       render :new
@@ -47,7 +46,7 @@ class UsersController < ApplicationController
     if @user
       @user = @user.authenticate(params[:password])
         if @user
-          session["user"] = @user.username
+          session[:user] = @user.username
           redirect_to user_path(@user)
         end
     else
