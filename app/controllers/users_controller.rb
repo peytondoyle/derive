@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    byebug
     @user = User.new(user_params)
     if @user.save
       redirect_to user_path(@user)
@@ -17,8 +18,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @destinations = @user.interested_destinations
   end
-
-
 
   def edit
 
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :username, :password)
+      params.require(:user).permit(:name, :username, :interests, :password)
     end
 
 end

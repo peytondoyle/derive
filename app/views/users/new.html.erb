@@ -14,6 +14,8 @@
 <%= f.text_field :name %><br>
 <%= f.label :username %><br>
 <%= f.text_field :username %><br>
+<%= f.label :interests %><br>
+<%= f.select :interests, options_from_collection_for_select(Interest.all, :id, :name), {:prompt => true}, {:multiple => true, :class => "chzn-select", :style => "height:100px;width:150px;" } %><br>
 <%= f.label :password %><br>
 <%= f.password_field :password %>
 <%= f.submit %>

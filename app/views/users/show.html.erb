@@ -2,9 +2,9 @@
 <h1>Welcome to <i>Dérive</i>! </h1>
 <h3>Hello <%= @user.name %>!</h3>
 
-<p>Your Interests:</p>
+<p><b>Your Interests:</b></p>
 <% if @user.interests.empty? %>
-<p><b>Select some interests!</b></p>
+<p style="color:red;"><b>Select some interests!</b></p>
 <% else %>
   <ul>
     <% @user.interests.each do |i| %>
@@ -12,19 +12,21 @@
     <% end %>
   </ul>
 <% end %>
-<%= form
- <hr>
 
-<p>Selected Destinations:</p>
+<p><b>Selected Destinations:</b></p>
 <% if @user.destinations.empty? %>
-<p><b>Select some destinations!</b></p>
+<p style="color:red;"><b>Select some destinations!</b></p>
 <% else %>
   <ul>
     <% @user.destinations.each do |d| %>
     <li><%= link_to "#{d.city} in #{d.country}", destination_path(d) %></li>
     <% end %>
   </ul>
-<% end %> <hr>
+<% end %>
+<%= form_tag edit_user_path(@user), method: 'get' do %>
+<%= submit_tag "Edit User Profile" %>
+<% end %>
+<hr>
 
 <h3>Destinations Recommendations:</h3>
 <ul>
