@@ -1,3 +1,27 @@
+/* TEXT */
+body {
+  font-family: Optima;
+}
+
+p {
+  font-size: small;
+}
+
+div.tiny {
+  font-size: small;
+}
+
+h1, h3  {
+  line-height: 5%;
+}
+
+div.submenu {
+  font-style: italic;
+  font-family: cursive;
+}
+
+/* MENU BAR */
+
 div.field_with_errors {
    display: inline;
  }
@@ -22,13 +46,15 @@ menuitem a {
   text-align: center;
   padding: 10px 14px;
   text-decoration: none;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 13px;
+  padding-right: 13px;
 }
 
 menuitem a:hover {
   background-color: #FD0CC8;
 }
+
+/* PAGE LAYOUT */
 
 #wrap {
    width:1250px;
@@ -47,17 +73,8 @@ menuitem a:hover {
   padding: 10px;
 }
 
-/* Clear floats after the columns */
 .row4:after {
   content: "";
   display: table;
   clear: both;
-}
-
-div.tiny {
-  font-size: small;
-}
-
-h1, h3  {
-  line-height: 5%;
 }

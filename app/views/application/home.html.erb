@@ -1,7 +1,7 @@
 <div id="wrap">
 <div id="left_col">
   <br><a href="/"><img src="http://picasion.com/gl/89/bFTz.gif"></a><br>
-  <i>your travel companion to destinations across the globe</i><br><br>
+  <div class="submenu">your travel companion to destinations across the globe</div><br>
   <menu>
     <menuitem><a href="/">Home</a></menuitem>
     <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
@@ -23,7 +23,7 @@
   </menu>
 <div>
   <img src="<%= @random.image %>" style="width:600px;"><br>
-  <figcaption><center><%= @random.city %>, <%= @random.country %> •  <%= link_to "Learn more", destination_path(@random.id) %></center>
+  <div class="tiny"><center><%= @random.city %>, <%= @random.country %> •  <%= link_to "Learn more", destination_path(@random.id) %></center></div>
 </div>
 
   <p>At <i>Dérive</i>, we strive to provide you with a travel destination, specifically tailored to your needs. Once you build your user profile, <i>Dérive</i> will craft a curated list of desirable destinations for your next trip.
@@ -31,15 +31,12 @@
   Would you rather perform a custom search instead? You can find our DestinationFinder™ <%= link_to "here", "/destination_search"%>. Additionally, you can browse all of our <i>Dérive-approved</i> destinations <%= link_to "here", destinations_path%>.
   <br><br>
   <strong>Have questions?</strong> Reach out to our <i>Dérive</i> Concierge who are waiting to answer your questions. <a href="mailto:p6doyle@outlook.com?subject=Dérive Inquiry" target="_blank">Email</a> us today.</p>
-<!-- </div> -->
 
-<!-- <div id="right_col">
-<br><br><br><br><br>
-  <h3>New user?</h3>
-  <form action="/users/new">
-    <input type="submit" value="Create your account"/>
-  </form><br>
-
-  <h3>Existing user?</h3>
-  <p>Log in form to go here</p>
-</div> -->
+  
+<!-- FOR SEMANTIC -->
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script
