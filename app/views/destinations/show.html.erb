@@ -1,24 +1,31 @@
-<h1>Learn more about <i><%= @destination.city %></i>! </h1>
+<div class="ui two column doubling stackable grid container">
+  <div class="column">
+  <h1>Learn more about <i><%= @destination.city %></i>! </h1>
 
-<img src="<%=@destination.image %>" style="width:500px;">
-<h2><%= @destination.city %>, <%= @destination.country %></h2>
+  <img src="<%=@destination.image %>" style="width:500px;">
+  <h2><%= @destination.city %>, <%= @destination.country %></h2>
 
 
-<% if @user.destinations.include?(@destination) %>
-  <button><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", onclick: "return confirm('#{@destination.city} was removed from your Dream Destinations!')"%></button>
-<% else %>
-  <button><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", onclick: "return confirm('#{@destination.city} was added to your Dream Destinations!')"%></button>
-<% end %>
-<h3>Fast Facts</h3>
-<hr width="20%" align="left">
-
-<strong>Is English primarily spoken in <%= @destination.city %>?</strong>
-  <% if @destination.english == true %>
-    <p>Yes</p>
-  <% else @destination.english == false %>
-    <p>No</p>
+  <% if @user.destinations.include?(@destination) %>
+    <button><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", onclick: "return confirm('#{@destination.city} was removed from your Dream Destinations!')"%></button>
+  <% else %>
+    <button><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", onclick: "return confirm('#{@destination.city} was added to your Dream Destinations!')"%></button>
   <% end %>
-<strong>How expensive is <%= @destination.city %>?</strong>
-  <p><%= @destination.budget %></p>
-<strong>What is the ideal travel group for <%= @destination.city %>?</strong>
-  <p><%= @destination.group %></p>
+  </div>
+
+  <div class="column">
+  <h3>Fast Facts</h3>
+  <hr width="20%" align="left">
+
+  <strong>Is English primarily spoken in <%= @destination.city %>?</strong>
+    <% if @destination.english == true %>
+      <p>Yes</p>
+    <% else @destination.english == false %>
+      <p>No</p>
+    <% end %>
+  <strong>How expensive is <%= @destination.city %>?</strong>
+    <p><%= @destination.budget %></p>
+  <strong>What is the ideal travel group for <%= @destination.city %>?</strong>
+    <p><%= @destination.group %></p>
+  </div>
+</div>

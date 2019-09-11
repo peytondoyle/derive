@@ -2,7 +2,7 @@
 <h1>Welcome to <i>Dérive</i>! </h1>
 <h2>Hello <%= @user.name %>!</h2>
 
-<p><b>Your Interests:</b></p>
+<h3>Your Interests:</h3>
 <% if @user.interests.empty? %>
 <p style="color:red;"><b>Select some interests!</b></p>
 <% else %>
@@ -17,7 +17,7 @@
 <% end %>
 <hr>
 
-<p><b>My Dream Destinations!</b></p>
+<h3>My Dream Destinations!</h3>
 <% if @user.destinations.empty? %>
 <p style="color:red;"><b>Select some destinations!</b></p>
 <% else %>
@@ -28,9 +28,13 @@
   </ul>
 <% end %>
 
-
-<h3>Destination Recommendations:</h3>
-<ul>
-<% @destinations.sort_by(&:city).each do |d| %>
-<li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%> <button><%= link_to "Add", user_destinations_create_path(d), method: "POST" %></button> </li>
-<% end %> </ul>
+<% if @destinations.empty? %>
+  <h5>*All recommended destinations have been added.*<br>
+  Add some more interests for additional recommendations!</h5>
+<% else %>
+  <h3>Destination Recommendations:</h3>
+  <ul>
+    <% @destinations.sort_by(&:city).each do |d| %>
+      <li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%> <button><%= link_to "Add", user_destinations_create_path(d), method: "POST" %></button> </li>
+      <% end %> </ul>
+<% end %>
