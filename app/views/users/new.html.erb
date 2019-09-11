@@ -1,22 +1,3 @@
 <h1>Create User Account</h1>
 
-<% if @user.errors.any? %>
-  <ul>
-  <% @user.errors.full_messages.each do |m| %>
-  <li><%= m %>
-  <% end %> </li></ul>
-  <% end %>
-
-
-
-<%= form_for @user do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :username %><br>
-<%= f.text_field :username %><br>
-<%= f.label :interests %><br>
-<%= f.collection_select :interests, Interest.all, :id, :name, {:prompt => "Please Select Interests"}, {:multiple => true}%><br>
-<%= f.label :password %><br>
-<%= f.password_field :password %>
-<%= f.submit %>
-<% end %>
+<%= render 'user_form' %>

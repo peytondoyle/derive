@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :random_destination
-  before_action :authorized, except: [:home, :login, :new, :verify]
+  before_action :authorized, except: [:home, :login, :new, :verify, :create]
 
   def home
     random_destination

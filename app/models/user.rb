@@ -17,9 +17,10 @@ class User < ApplicationRecord
     end
 
     def interests=(interests_array)
+      self.interests.clear
       interests_array.drop(1).each do |i|
         interest = Interest.find(i)
-        self.interests << interest
+        UserInterest.find_or_create_by(user_id: self.id, interest_id: i)
       end
     end
 
