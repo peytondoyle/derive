@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/search_results', to: 'application#results', as: 'results'
   get '/destination_search', to: "application#search", as: 'search'
   get '/user_search', to: 'users#search', as: 'user_search'
+  get '/login', to: 'users#login', as: 'login'
+  post '/login', to: 'users#verify', as: 'verify'
+  delete '/logout', to: 'users#logout', as: 'logout'
   resources :destination_locales
   resources :locales
   resources :destination_interests
@@ -11,6 +14,4 @@ Rails.application.routes.draw do
   resources :user_destinations
   resources :destinations
   resources :users
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

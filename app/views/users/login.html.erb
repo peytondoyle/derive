@@ -1,0 +1,22 @@
+<h1>User Login</h1>
+
+<% if session[:invalid] %>
+  <p>TEST </p>
+<% end %>
+
+
+<% if @user %>
+  <% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |m| %>
+    <li><%= m %>
+    <% end %> </li></ul>
+    <% end %>
+<% end %>
+
+<%= form_tag "/login", method: "post" %>
+  <%= label_tag :username %><br>
+  <%= text_field_tag :username %><br>
+  <%= label_tag :password %><br>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Login" %>

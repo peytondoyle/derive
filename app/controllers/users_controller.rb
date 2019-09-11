@@ -33,6 +33,28 @@ class UsersController < ApplicationController
 
   end
 
+  def login
+    session.delete(:invalid)
+  end
+
+  def logout
+    session.delete(:user)
+    redirect_to home_path
+  end
+
+  def verify
+    @user = User.find_by(username: params[:username])
+    if @user
+      @user = @user.authenticate(params[:password])
+        if @user
+          session["user"] = @user.username
+          redirect_to user_path(@user)
+        end
+    else
+      render :login
+    end
+  end
+
   private
 
     def user_params

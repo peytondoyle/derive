@@ -6,8 +6,20 @@
     <menuitem><a href="/">Home</a></menuitem>
     <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
     <menuitem><a href="/destinations">Dérive Destinations</a></menuitem>
-    <menuitem><a href="/users/new">Create Account</a></menuitem>
-    <menuitem><a href="/users/login">Login</a></menuitem>
+    <menuitem>
+      <% if session[:user] %>
+      <a href=<%= user_path(User.find_by(username: session[:user])) %>>My Profile</a>
+      <% else %>
+      <a href="/users/new">Create Account</a>
+      <% end %>
+    </menuitem>
+    <menuitem>
+      <% if session[:user] %>
+      <%= link_to "Logout", logout_path, method: "delete" %>
+      <% else %>
+      <a href=<%= login_path %>>Login</a>
+      <% end %>
+    </menuitem>
   </menu>
 <div>
   <img src="<%= @random.image %>" style="width:600px;"><br>

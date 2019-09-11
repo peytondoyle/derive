@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :random_destination
-  
+  before_action :authorized, except: [:home, :login, :new]
+
   def home
     random_destination
   end
@@ -24,5 +25,12 @@ class ApplicationController < ActionController::Base
       @search = params[:search]
     end
     render :search
+  end
+
+  def authorized
+    if !session[:user]
+      session[:invalid] = true
+      render "/users/login"
+    end
   end
 end

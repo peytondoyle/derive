@@ -1,11 +1,12 @@
 ###Users
-peyton = User.find_or_create_by(name: "Peyton Doyle")
-rob = User.find_or_create_by(name: "Rob Paik")
-marisa = User.find_or_create_by(name: "Marisa Canan-Zucker")
-pete = User.find_or_create_by(name: "Pete Hanner")
-victor = User.find_or_create_by(name: "Victor Choe")
-german = User.find_or_create_by(name: "German Garcia Gonzalez")
-carlos = User.find_or_create_by(name: "Carlos Velazquez")
+User.destroy_all
+peyton = User.create(name: "Peyton Doyle", username:"peytondo", password: "1234")
+rob = User.create(name: "Rob Paik", username: "Robpa",password: "1234")
+marisa = User.create(name: "Marisa Canan-Zucker",username:"mariska",  password: "1234")
+pete = User.create(name: "Pete Hanner", username:"peteha", password: "1234")
+victor = User.create(name: "Victor Choe", username:"victorch", password: "1234")
+german = User.create(name: "German Garcia Gonzalez", username:"germanga", password: "1234")
+carlos = User.create(name: "Carlos Velazquez", username:"carlosve", password: "1234")
 
 ###Destinations
 xian = Destination.find_or_create_by(city: "Xi'an", country: "China", english: false, image: "https://ca-times.brightspotcdn.com/dims4/default/da893b4/2147483647/strip/true/crop/1849x1040+0+0/resize/840x472!/quality/90/?url=https%3A%2F%2Fca-times.brightspotcdn.com%2Ff5%2F88%2Fd1d9cdc4f93dfd3257c78562297c%2Fla-1550885470-78q53n7agq-snap-image", budget: "$", group: "Adult Group")
