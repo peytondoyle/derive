@@ -1,19 +1,4 @@
-<div id="wrap">
-<div id="left_col">
-  <br><a href="/"><img src="http://picasion.com/gl/89/bFTz.gif"></a><br>
-  <i>your travel companion to destinations across the globe</i><br><br>
-  <menu>
-    <menuitem><a href="/">Home</a></menuitem>
-    <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
-    <menuitem><a href="/destinations">Dérive Destinations</a></menuitem>
-    <menuitem><a href="/users/new">Create Account</a></menuitem>
-    <menuitem><a href="/users/login">Login</a></menuitem>
-  </menu>
-<% random = random_destination %>
-<div>
-  <img src="<%= random.image %>" style="width:600px;"><br>
-  <figcaption><center><%= random.city %>, <%= random.country %> •  <%= link_to "Learn more", destination_path(random.id) %></center>
-</div><br>
+
 
 <h1><i>Dérive</i> DestinationFinder™!</h1>
 <% if @user %>

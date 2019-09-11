@@ -1,10 +1,13 @@
 /* TEXT */
 body {
-  font-family: Optima;
+  /* font-family: 'Playfair Display', serif; */
 }
 
 p {
   font-size: small;
+  font-family: 'Playfair Display', serif;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
 div.tiny {
@@ -13,48 +16,25 @@ div.tiny {
 
 h1, h3  {
   line-height: 5%;
+  font-family: 'Playfair Display', serif;
 }
 
 div.submenu {
-  font-style: italic;
-  font-family: cursive;
+  font-family: 'Dynalight', cursive;
+  font-size: x-large;
+  color: #ffffff;
+  margin-top: -8px;
+  padding-left: 10px;
 }
 
-/* MENU BAR */
+/* LINKS */
 
-div.field_with_errors {
-   display: inline;
- }
-
-menu {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   overflow: hidden;
-   background-color: #333;
-   width: 600px;
-   right: 100px;
+/* mouse over link */
+a:hover {
+  color: #FD0CC8;
 }
 
-menuitem {
-  float: left;
-}
-
-menuitem a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 10px 14px;
-  text-decoration: none;
-  padding-left: 13px;
-  padding-right: 13px;
-}
-
-menuitem a:hover {
-  background-color: #FD0CC8;
-}
-
-/* PAGE LAYOUT */
+/* DERIVE FINDER LAYOUT */
 
 #wrap {
    width:1250px;
@@ -69,7 +49,7 @@ menuitem a:hover {
 .column4 {
   float: left;
   width: 30%;
-  height: 250px;
+  height: 260px;
   padding: 10px;
 }
 
@@ -77,4 +57,29 @@ menuitem a:hover {
   content: "";
   display: table;
   clear: both;
+}
+
+/* IMAGES*/
+img:hover {
+background-color: transparent;
+}
+
+#menu-link{
+  color: #black;
+  font-family: 'Playfair Display', serif;
+}
+#menu-link:hover{
+  color: white;
+  background-color: #bf5241;
+  opacity: 0.5;
+}
+
+.above-header{
+  background-color: #bf5241;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+#top-menu{
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
