@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'users#login', as: 'login'
   post '/login', to: 'users#verify', as: 'verify'
   delete '/logout', to: 'users#logout', as: 'logout'
+  post '/user_destinations/:id', to: 'user_destinations#create', as: 'user_destinations_create'
   resources :destination_locales
   resources :locales
   resources :destination_interests

@@ -15,8 +15,8 @@
 <%= f.label :password %><br>
 <%= f.password_field :password %><br>
 <%= f.label :interests %><br>
-<%= f.collection_check_boxes(:interests, Interest.all ,:id, :name) do |b| %>
-<%= b.label(:"data-value" => b.value) { b.check_box + b.text } %><br>
+<%= f.collection_check_boxes(:interests, Interest.all.sort_by(&:name) ,:id, :name) do |z| %>
+<%= z.label { z.check_box(checked: @user.interest_ids.include?(z.object.id)) + z.text } %><br>
 <% end %><br>
 <%= f.submit %>
 <% end %>

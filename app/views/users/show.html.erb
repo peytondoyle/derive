@@ -1,6 +1,6 @@
 
 <h1>Welcome to <i>Dérive</i>! </h1>
-<h3>Hello <%= @user.name %>!</h3>
+<h2>Hello <%= @user.name %>!</h2>
 
 <p><b>Your Interests:</b></p>
 <% if @user.interests.empty? %>
@@ -12,24 +12,25 @@
     <% end %>
   </ul>
 <% end %>
-
-<p><b>Selected Destinations:</b></p>
-<% if @user.destinations.empty? %>
-<p style="color:red;"><b>Select some destinations!</b></p>
-<% else %>
-  <ul>
-    <% @user.destinations.each do |d| %>
-    <li><%= link_to "#{d.city} in #{d.country}", destination_path(d) %></li>
-    <% end %>
-  </ul>
-<% end %>
 <%= form_tag edit_user_path(@user), method: 'get' do %>
 <%= submit_tag "Edit User Profile" %>
 <% end %>
 <hr>
 
+<p><b>My Dream Destinations!</b></p>
+<% if @user.destinations.empty? %>
+<p style="color:red;"><b>Select some destinations!</b></p>
+<% else %>
+  <ul>
+    <% @user.destinations.sort_by(&:city).each do |d| %>
+    <li><%= link_to "#{d.city} in #{d.country}", destination_path(d) %> <button><%= link_to "Remove", user_destination_path(UserDestination.find_by(user: @user.id, destination: d.id)), method: "DELETE" %></button></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h3>Destination Recommendations:</h3>
 <ul>
-<% @destinations.each do |d| %>
-<li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>
+<% @destinations.sort_by(&:city).each do |d| %>
+<li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%> <button><%= link_to "Add", user_destinations_create_path(d), method: "POST" %></button> </li>
 <% end %> </ul>
