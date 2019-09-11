@@ -28,7 +28,7 @@
 <% end %>
 <hr>
 
-<h3>Destinations Recommendations:</h3>
+<h3>Destination Recommendations:</h3>
 <ul>
 <% @destinations.each do |d| %>
 <li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>

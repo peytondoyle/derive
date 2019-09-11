@@ -15,4 +15,11 @@ class User < ApplicationRecord
       interestdestinations.flatten.uniq
     end
 
+    def interests=(interests_array)
+      interests_array.drop(1).each do |i|
+        interest = Interest.find(i)
+        self.interests << interest
+      end
+    end
+
 end
