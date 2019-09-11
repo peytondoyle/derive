@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if User.find_by(username: session[:user]) != @user
       redirect_to home_path
     else
-      @destinations = @user.interested_destinations
+      @destinations = @user.interested_destinations - @user.destinations
     end
   end
 
