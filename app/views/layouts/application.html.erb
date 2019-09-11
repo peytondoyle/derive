@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Derive</title>
+    <title>dérive</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- FOR SEMANTIC -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Dynalight|Playfair+Display:400,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Dynalight">
   </head>
 
   <body>
+    <div class="above-header">
+    <a href="/"><img src="<%= asset_path('Untitled-612.png') %>" style="width: 26%;"></a><br>
+    <div class="submenu">your travel companion to destinations across the globe</div></div>
+    <div class="ui menu" id="top-menu">
+      <!-- <div class="ui header item">
+      </div> -->
+        <a class="item" id="menu-link" href="/">Home</a>
+        <a  class="item" id="menu-link" href="/destination_search">DestinationFinder™</a>
+        <a  class="item" id="menu-link" href="/destinations">Dérive Destinations</a>
+        <% if session[:user] %>
+        <a  class="item" id="menu-link" href=<%= user_path(User.find_by(username: session[:user])) %>>My Profile</a>
+        <% else %>
+        <a class="item" id="menu-link" href="/users/new">Create Account</a>
+        <% end %>
+
+        <% if session[:user] %>
+        <%= link_to "Logout", logout_path, method: "delete", class: "item", id: "menu-link" %>
+        <% else %>
+        <a class="item" id="menu-link" href=<%= login_path %>>Login</a>
+        <% end %>
+      </div>
+    </div>
+
+
+
     <%= yield %>
   </body>
 </html>

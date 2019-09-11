@@ -1,42 +1,19 @@
-<div id="wrap">
-<div id="left_col">
-  <br><a href="/"><img src="http://picasion.com/gl/89/bFTz.gif"></a><br>
-  <div class="submenu">your travel companion to destinations across the globe</div><br>
-  <menu>
-    <menuitem><a href="/">Home</a></menuitem>
-    <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
-    <menuitem><a href="/destinations">Dérive Destinations</a></menuitem>
-    <menuitem>
-      <% if session[:user] %>
-      <a href=<%= user_path(User.find_by(username: session[:user])) %>>My Profile</a>
-      <% else %>
-      <a href="/users/new">Create Account</a>
-      <% end %>
-    </menuitem>
-    <menuitem>
-      <% if session[:user] %>
-      <%= link_to "Logout", logout_path, method: "delete" %>
-      <% else %>
-      <a href=<%= login_path %>>Login</a>
-      <% end %>
-    </menuitem>
-  </menu>
-<div>
-  <img src="<%= @random.image %>" style="width:600px;"><br>
-  <div class="tiny"><center><%= @random.city %>, <%= @random.country %> •  <%= link_to "Learn more", destination_path(@random.id) %></center></div>
+<div class="ui grid">
+  <div class="seven wide column" style="padding-right: 0px;">
+    <% random = random_destination[3] %>
+    <img src="<%= random.image %>" style="width:100%; height: auto; padding-right: 0px;">
+    
+  </div>
+  <div class="nine wide column">
+    <p>At <i>Dérive</i>, we strive to provide you with a travel destination, specifically tailored to your needs. Once you build your user profile, <i>Dérive</i> will craft a curated list of desirable destinations for your next trip.
+
+    <br><br>
+
+    Would you rather perform a custom search instead? You can find our DestinationFinder™ <%= link_to "here", "/destination_search"%>. Additionally, you can browse all of our <i>Dérive-approved</i> destinations <%= link_to "here", destinations_path%>.
+
+    <br><br>
+
+    <strong>Have questions?</strong> Reach out to our <i>Dérive</i> Concierge who are waiting to answer your questions. <a href="mailto:p6doyle@outlook.com?subject=Dérive Inquiry" target="_blank">Email</a> us today.</p>
+
+  </div>
 </div>
-
-  <p>At <i>Dérive</i>, we strive to provide you with a travel destination, specifically tailored to your needs. Once you build your user profile, <i>Dérive</i> will craft a curated list of desirable destinations for your next trip.
-  <br><br>
-  Would you rather perform a custom search instead? You can find our DestinationFinder™ <%= link_to "here", "/destination_search"%>. Additionally, you can browse all of our <i>Dérive-approved</i> destinations <%= link_to "here", destinations_path%>.
-  <br><br>
-  <strong>Have questions?</strong> Reach out to our <i>Dérive</i> Concierge who are waiting to answer your questions. <a href="mailto:p6doyle@outlook.com?subject=Dérive Inquiry" target="_blank">Email</a> us today.</p>
-
-  
-<!-- FOR SEMANTIC -->
-<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<script src="semantic/dist/semantic.min.js"></script
