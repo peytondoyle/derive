@@ -38,8 +38,8 @@ menuitem a {
   text-align: center;
   padding: 10px 14px;
   text-decoration: none;
-  padding-left: 21px;
-  padding-right: 21px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 menuitem a:hover {
@@ -74,3 +74,6 @@ div.tiny {
   font-size: small;
 }
 
+h1, h3  {
+  line-height: 5%;
+}

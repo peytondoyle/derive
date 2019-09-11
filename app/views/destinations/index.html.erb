@@ -7,6 +7,21 @@
   <% end %>
 </ul>
 
+
+<% @alpha_dest.each do |destination| %>
+<a href="/destinations/<%= destination.id %>"><img src="<%= destination.image %>" style="width:20%; height:175px;"></a>
+<p><%= destination.city%>, <%= destination.country %></p>
+<% end %>
+
+<% @alpha_dest.each do |destination| %>
+/* Simple overlay */
+<div class="overlay-image"><a href="LINK_URL">
+ <img class="image" src="<%= destination.image %>" alt="Alt text" style="width:20%; height:175px;"/>
+ <div class="text">Image + text
+  NO HOVER</div>
+</a></div>
+<% end %>
+
 <form action="/">
   <input type="submit" value="Return Home"/>
 </form>

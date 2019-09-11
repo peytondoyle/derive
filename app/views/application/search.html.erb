@@ -1,57 +1,61 @@
 <div id="wrap">
 <div id="left_col">
-  <br><img src="http://picasion.com/gl/89/bFTz.gif"><br>
+  <br><a href="/"><img src="http://picasion.com/gl/89/bFTz.gif"></a><br>
   <i>your travel companion to destinations across the globe</i><br><br>
   <menu>
     <menuitem><a href="/">Home</a></menuitem>
     <menuitem><a href="/destination_search">DestinationFinder™</a></menuitem>
     <menuitem><a href="/destinations">Dérive Destinations</a></menuitem>
-    <menuitem><a href="/users/new">Contact</a></menuitem>
+    <menuitem><a href="/users/new">Create Account</a></menuitem>
     <menuitem><a href="/users/login">Login</a></menuitem>
   </menu>
 <% random = random_destination %>
 <div>
   <img src="<%= random.image %>" style="width:600px;"><br>
   <figcaption><center><%= random.city %>, <%= random.country %> •  <%= link_to "Learn more", destination_path(random.id) %></center>
-</div>
+</div><br>
 
 <h1><i>Dérive</i> DestinationFinder™!</h1>
 <% if @user %>
   <i><%= @user.name %>, search for your next curated destination using the interactive search form below.</i>
 <% else %>
-  <i>Search for your next curated destination using the interactive search form below.</i>
+  <i>Search for your next curated destination using the interactive search form below.</i><br>
+  <div class="tiny">Press ⌘ and click to select more than one option.</div><br>
 <% end %>
 
 <div class="row4">
   <%= form_tag "/search_results", method: "get" %>
   <div class="column4" style="background-color:#aaa;">
     <h2>Interests</h2>
-    <i>What do you like to do?</i><br>
+    <i>What do you like to do?</i><br><br>
     <%= select_tag "search[interests]", options_for_select(Interest.all.collect{ |i| [i.name, i.id] }), multiple: true, size: 7 %><br>
 </div>
   <div class="column4" style="background-color:#bbb;">
     <h2>Locales</h2>
     <i>What type of environment excites you?</i><br><br>
-    <%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5, prompt: 'Select locales' %> <br>
+    <%= select_tag "search[locales]", options_for_select(Locale.all.collect{ |l| [l.name, l.id] }), multiple: true, size: 5 %> <br>
   </div>
   <div class="column4" style="background-color:#ccc;">
-    <h2>Column 3</h2>
-    <%= label_tag :budget %><br>
-    <%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), include_blank: 'Select a budget'%><br>
-    <%= label_tag :english_speaking? %><br>
-    <%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br>
+    <h2>Budget & Language</h2>
+    <i>What is your budget?</i><br>
+    <%= select_tag "search[budget]", options_for_select(["$", "$$", "$$$", "$$$$"]), include_blank: 'Select a budget'%><br><br>
+    <i>Do you prefer English speaking destinations?</i><br>
+    <%= select_tag "search[english?]", options_for_select([['Yes', 1], ['No', 0]]), include_blank: 'Select preference'%><br><br>
     <b><%= submit_tag 'Search for Destinations'%></b> <br>
   </div>
+</div><br>
 
 <% if !@search.empty? %>
-    <h3>Destinations filtered by your preferences:</h3>
+    <h3><i>Dérive</i> Destinations filtered by your preferences:</h3>
+    <i>The destinations at the top of the list are the most compatible with your travel preferences.</i>
     <ul>
     <% @destinations.each do |d, value| %>
-    <li><%= link_to "#{d.city} in #{d.country} with #{value} preference matches!", destination_path(d)%></li>
+    <li><%= link_to "#{d.city}, #{d.country} (#{value} matches)", destination_path(d)%></li>
     <% end %> </ul>
 
   <% else %>
-    <h3>Destinations:</h3>
+
+    <h3>All <i>Dérive</i> Destinations:</h3>
     <ul>
     <% @destinations.each do |d| %>
     <li><%= link_to "#{d.city} in #{d.country}", destination_path(d)%></li>
