@@ -1,19 +1,21 @@
 <div class="ui grid">
-  <div class="seven wide column" style="padding-right: 0px;">
-    <% random = random_destination[3] %>
-    <img src="<%= random.image %>" style="width:100%; height: auto; padding-right: 0px;">
-    
+  <div class="eight wide column" style="padding-right: 0px;">
+    <img src="<%= random_destination.image %>" style="object-fit: cover; object-position: 100% 0; width:100%; height: 450px; padding-right: 5px;">
   </div>
-  <div class="nine wide column">
-    <p>At <i>Dérive</i>, we strive to provide you with a travel destination, specifically tailored to your needs. Once you build your user profile, <i>Dérive</i> will craft a curated list of desirable destinations for your next trip.
+  <div class="eight wide column">
+    <br><br>
+    <h8>Welcome to dérive.</h8>
+    <p>At dérive, we strive to provide you with a travel destination, specifically tailored to your needs. Once you build your user profile, dérive will craft a curated list of desirable destinations for your next trip.
 
     <br><br>
 
-    Would you rather perform a custom search instead? You can find our DestinationFinder™ <%= link_to "here", "/destination_search"%>. Additionally, you can browse all of our <i>Dérive-approved</i> destinations <%= link_to "here", destinations_path%>.
+    <strong>Would you rather perform a custom search instead?</strong><br>
+    You can find our DestinationFinder™ <%= link_to "here", "/destination_search"%>. Additionally, you can browse all of our <i>Dérive-approved</i> destinations <%= link_to "here", destinations_path%>.
 
     <br><br>
 
-    <strong>Have questions?</strong> Reach out to our <i>Dérive</i> Concierge who are waiting to answer your questions. <a href="mailto:p6doyle@outlook.com?subject=Dérive Inquiry" target="_blank">Email</a> us today.</p>
+    <strong>Have questions?</strong><br>
+    Reach out to our dérive Concierge who are waiting to answer your questions. <a href="mailto:p6doyle@outlook.com?subject=Dérive Inquiry" target="_blank">Email</a> us today.</p>
 
   </div>
 </div>

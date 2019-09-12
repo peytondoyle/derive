@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def login
+    random_destination
     session.delete(:invalid)
   end
 

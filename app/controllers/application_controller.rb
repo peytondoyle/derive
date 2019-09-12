@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def random_destination
     @destinations = Destination.all
-    @random = @destinations
+    @random = @destinations.sample
   end
 
   def search
