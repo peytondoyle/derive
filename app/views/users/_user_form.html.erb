@@ -8,17 +8,17 @@
 
 
 <%= form_for @user do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :username %><br>
+<p><strong><%= f.label :name %></p></strong>
+<%= f.text_field :name %><br><br>
+<p><strong><%= f.label :username %></p></strong>
 <%= f.text_field :username %><br>
 <% if !@user.id %>
-<%= f.label :password %><br>
+<p><strong><%= f.label :password %></p></strong>
 <%= f.password_field :password %><br>
 <% end %>
-<%= f.label :interests %><br>
-<%= f.collection_check_boxes(:interests, Interest.all.sort_by(&:name) ,:id, :name) do |z| %>
+<p><strong><br><%= f.label :interests %></p></strong>
+<p><%= f.collection_check_boxes(:interests, Interest.all.sort_by(&:name) ,:id, :name) do |z| %>
 <%= z.label { z.check_box(checked: @user.interest_ids.include?(z.object.id)) + " " + z.text } %><br>
 <% end %><br>
-<%= f.submit %>
+<%= f.submit %></p>
 <% end %>

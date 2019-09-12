@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @destination = Destination.all
     @user = User.find(params[:id])
     if User.find_by(username: session[:user]) != @user
       redirect_to home_path
