@@ -5,7 +5,10 @@ class User < ApplicationRecord
     has_many :destinations, through: :user_destinations
     has_secure_password
 
-    validates_presence_of :name
+    validates_presence_of :name, :username
+    validates :password, presence: true, on: create
+    validates_uniqueness_of :username, :case_sensitive => false
+    before_save { self.username.downcase! }
 
     def interested_destinations
       interestdestinations = []
@@ -20,7 +23,7 @@ class User < ApplicationRecord
       self.interests.clear
       interests_array.drop(1).each do |i|
         interest = Interest.find(i)
-        UserInterest.find_or_create_by(user_id: self.id, interest_id: i)
+        self.interests << interest
       end
     end
 

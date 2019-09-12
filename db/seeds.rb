@@ -1,7 +1,7 @@
 ###Users
 User.destroy_all
 peyton = User.create(name: "Peyton Doyle", username:"peytondo", password: "1234")
-rob = User.create(name: "Rob Paik", username: "Robpa",password: "1234")
+rob = User.create(name: "Rob Paik", username: "robpa",password: "1234")
 marisa = User.create(name: "Marisa Canan-Zucker",username:"mariska",  password: "1234")
 pete = User.create(name: "Pete Hanner", username:"peteha", password: "1234")
 victor = User.create(name: "Victor Choe", username:"victorch", password: "1234")

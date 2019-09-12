@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    byebug
     @user.update(user_params)
     redirect_to user_path(@user)
   end
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def verify
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username].downcase)
     if @user
       @user = @user.authenticate(params[:password])
         if @user

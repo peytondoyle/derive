@@ -1,6 +1,7 @@
 
 <h1>Welcome to <i>Dérive</i>! </h1>
-<h2>Hello <%= @user.name %>!</h2>
+<h2>Hello <%= @user.name %>!<br>
+<i>Username: <%= @user.username %></i></h2>
 
 <h3>Your Interests:</h3>
 <% if @user.interests.empty? %>

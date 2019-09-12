@@ -12,8 +12,10 @@
 <%= f.text_field :name %><br>
 <%= f.label :username %><br>
 <%= f.text_field :username %><br>
+<% if !@user.id %>
 <%= f.label :password %><br>
 <%= f.password_field :password %><br>
+<% end %>
 <%= f.label :interests %><br>
 <%= f.collection_check_boxes(:interests, Interest.all.sort_by(&:name) ,:id, :name) do |z| %>
 <%= z.label { z.check_box(checked: @user.interest_ids.include?(z.object.id)) + z.text } %><br>
