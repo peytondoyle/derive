@@ -44,17 +44,38 @@ class UsersController < ApplicationController
   end
 
   def verify
-    @user = User.find_by(username: params[:username].downcase)
-    if @user
-      @user = @user.authenticate(params[:password])
+    #check to see if any values are entered before hitting DB
+    if login_fields
+      @error = login_fields
+      render :login
+    #once all values are entered run verify process
+    else
+      @user = User.find_by(username: params[:username].downcase)
         if @user
-          session[:user] = @user.username
-          redirect_to user_path(@user)
+          @user = @user.authenticate(params[:password])
+            if @user
+              session[:user] = @user.username
+              redirect_to user_path(@user)
+            else
+              @error = "Invalid password entered."
+              render :login
+            end
         else
+          @error = "Username does not exist."
           render :login
         end
+    end
+  end
+
+  def login_fields
+    if params[:username].empty? && params[:password].empty?
+        return "Please enter a username and password."
+    elsif params[:username].empty?
+        return "Please enter a username."
+    elsif params[:password].empty?
+        return "Please enter a password"
     else
-      render :login
+        return false
     end
   end
 

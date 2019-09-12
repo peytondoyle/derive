@@ -12,14 +12,17 @@
       <p>Apologies. In order to access the exclusive features dérive offers, please log in.</p>
     <% end %>
 
-
     <% if @user %>
       <% if @user.errors.any? %>
         <ul>
         <% @user.errors.full_messages.each do |m| %>
         <li><%= m %>
         <% end %> </li></ul>
-        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if @error %>
+      <br><br> <%= @error %>
     <% end %>
 
 
