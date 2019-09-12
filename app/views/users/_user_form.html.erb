@@ -3,22 +3,20 @@
   <% @user.errors.full_messages.each do |m| %>
   <li><%= m %>
   <% end %> </li></ul>
-  <% end %>
-
-
+<% end %>
 
 <%= form_for @user do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :username %><br>
-<%= f.text_field :username %><br>
+<p><strong><%= f.label :name %></strong><br>
+<%= f.text_field :name %><br><br>
+<strong><%= f.label :username %></strong><br>
+<%= f.text_field :username %><br><br>
 <% if !@user.id %>
-<%= f.label :password %><br>
-<%= f.password_field :password %><br>
+<strong><%= f.label :password %></strong><br>
+<%= f.password_field :password %><br><br>
 <% end %>
-<%= f.label :interests %><br>
+<strong><%= f.label :interests %></strong><br>
 <%= f.collection_check_boxes(:interests, Interest.all.sort_by(&:name) ,:id, :name) do |z| %>
 <%= z.label { z.check_box(checked: @user.interest_ids.include?(z.object.id)) + z.text } %><br>
-<% end %><br>
+<% end %><br></p>
 <%= f.submit %>
 <% end %>
