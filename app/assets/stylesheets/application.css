@@ -25,6 +25,8 @@ h7 {
   line-height: 100%;
 }
 
+
+
 h8 {
   font-family: 'Playfair Display', serif;
   font-size: 60px;
@@ -62,7 +64,7 @@ a:hover {
 .column4 {
   float: left;
   width: 30%;
-  height: 260px;
+  height: 290px;
   padding: 10px;
 }
 
