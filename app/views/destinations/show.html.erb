@@ -1,31 +1,72 @@
-<div class="ui two column doubling stackable grid container">
-  <div class="column">
-  <h1>Learn more about <i><%= @destination.city %></i>! </h1>
+<div class="ui grid">
+  <div class="eight wide column" style="padding-right: 0px;">
+    <img src="<%= @destination.image %>" style="object-fit: cover; object-position: 100% 0; width:100%; height: 430px; padding-right: 5px;">
+    <div class="">
+    <h7><%= @destination.city %>, <%= @destination.country %></h7>
 
-  <img src="<%=@destination.image %>" style="width:500px;">
-  <h2><%= @destination.city %>, <%= @destination.country %></h2>
-
-
-  <% if @user.destinations.include?(@destination) %>
-    <button><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", onclick: "return confirm('#{@destination.city} was removed from your Dream Destinations!')"%></button>
-  <% else %>
-    <button><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", onclick: "return confirm('#{@destination.city} was added to your Dream Destinations!')"%></button>
-  <% end %>
-  </div>
-
-  <div class="column">
-  <h3>Fast Facts</h3>
-  <hr width="20%" align="left">
-
-  <strong>Is English primarily spoken in <%= @destination.city %>?</strong>
-    <% if @destination.english == true %>
-      <p>Yes</p>
-    <% else @destination.english == false %>
-      <p>No</p>
+    <% if @user.destinations.include?(@destination) %>
+      <button id="user-button"><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", onclick: "return confirm('#{@destination.city} was removed from your Dream Destinations!')"%></button>
+    <% else %>
+      <button><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", onclick: "return confirm('#{@destination.city} was added to your Dream Destinations!')"%></button>
     <% end %>
-  <strong>How expensive is <%= @destination.city %>?</strong>
-    <p><%= @destination.budget %></p>
-  <strong>What is the ideal travel group for <%= @destination.city %>?</strong>
-    <p><%= @destination.group %></p>
+
+    </div>
+  </div>
+  <div class="eight wide column">
+    <br><br>
+    <h8>Learn more about <%= @destination.city %>.</h8>
+
+
+    <br><br>
+    <div class="wrapper">
+    <div class="ui icon message" id="test">
+      &nbsp;<i class="comment outline icon"></i>
+      <div class="content">
+        <div class="header">
+          <h6>Is English primarily spoken in <%= @destination.city %>?</h6>
+        </div>
+          <% if @destination.english == true %>
+            <p>&nbsp;&nbsp;Yes, English is the primary language spoken in <%= @destination.country %>.</p>
+          <% else @destination.english == false %>
+            <p>&nbsp;&nbsp;No, English is not the primary language spoken in <%= @destination.country %>.</p>
+          <% end %>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="wrapper">
+    <div class="ui icon message" id="test">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="dollar sign icon"></i>
+      <div class="content">
+        <div class="header">
+          <h6>&nbsp;&nbsp;How expensive is <%= @destination.city %>?</h6>
+        </div>
+          <% if @destination.budget == "$" %>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $20-$50 a day in <%= @destination.city%>.</p>
+          <% elsif @destination.budget == "$$" %>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $50-$100 a day in <%= @destination.city%>.</p>
+          <% elsif @destination.budget == "$$$" %>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $100-$200 a day in <%= @destination.city%>.</p>
+          <% elsif @destination.budget == "$$$$" %>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $200+ a day in <%= @destination.city%>.</p>
+          <% end %>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="wrapper">
+    <div class="ui icon message" id="test">
+      &nbsp;&nbsp;&nbsp;&nbsp;<i class="suitcase icon"></i>
+      <div class="content">
+        <div class="header">
+          <h6>What is the ideal travel group for <%= @destination.city %>?</h6>
+        </div>
+          <p>&nbsp;&nbsp;dérive's size recommendation for <%= @destination.city %> is <strong><%= @destination.group.downcase %></strong>.</p>
+      </div>
+    </div>
+    </div>
+
+
+
   </div>
 </div>

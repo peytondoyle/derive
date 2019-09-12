@@ -18,6 +18,15 @@ h1, h3  {
   line-height: 5%;
 }
 
+h6 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 0px;
+  margin: 7px;
+}
+
 h7 {
   font-family: 'Playfair Display', serif;
   font-size: 30px;
@@ -123,8 +132,6 @@ background-color: transparent;
 }
 
 .gallery-image {
-    /* width: 400px;
-    height: 230px; */
     box-shadow: 4px 4px 4px lightgray;
     object-fit: cover;
     object-position: 100% 0;
@@ -133,8 +140,22 @@ background-color: transparent;
 }
 
 .gallery-image:hover {
-    /* box-shadow: 5px 5px 5px gray; */
     opacity: 0.7;
 }
 
 /* END DESTINATION INDEX PAGE */
+
+/* WRAPPER FOR DESTINATION SHOW PAGE */
+
+.wrapper {
+  padding-right: 100px;
+  padding-top: -10px;
+  margin-bottom: -10px;
+}
+
+/* WRAPPER FOR DESTINATION SHOW PAGE */
+
+#user-button {
+  float: right;
+  margin-top: 5px;
+}
