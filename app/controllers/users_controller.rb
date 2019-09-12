@@ -53,6 +53,8 @@ class UsersController < ApplicationController
         if @user
           session[:user] = @user.username
           redirect_to user_path(@user)
+        else
+          render :login
         end
     else
       render :login
