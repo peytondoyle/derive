@@ -1,3 +1,25 @@
+<div class="ui grid">
+  <div class="ten wide column" style="padding-right: 0px;">
+    <div class="gallery">
+    <% @alpha_dest.each do |destination| %>
+        <%= link_to destination_path(destination) do %>
+            <%= image_tag destination.image, class: "gallery-image"%>
+            <p style="text-align: center"><strong><%= destination.city %>, <%= destination.country %></strong></p>
+        <% end %>
+    <% end %>
+    </div>
+
+  </div>
+  <div class="six wide column">
+    <br><br>
+    <h8>dérive Destinations.</h8>
+    <p>Learn more about all of the travel destinations dérive offers.
+      Click the image to learn more about each destination.</p>
+  </div>
+</div>
+
+
+
 <h1>Destinations</h1>
 <h3>Learn more about all of the travel destinations <i>Dérive</i> features.</h3>
 

@@ -26,7 +26,7 @@
       </div> -->
         <a class="item" id="menu-link" href="/">Home</a>
         <a  class="item" id="menu-link" href="/destination_search">DestinationFinder™</a>
-        <a  class="item" id="menu-link" href="/destinations">Dérive Destinations</a>
+        <a  class="item" id="menu-link" href="/destinations">dérive Destinations</a>
         <% if session[:user] %>
         <a  class="item" id="menu-link" href=<%= user_path(User.find_by(username: session[:user])) %>>My Profile</a>
         <% else %>
