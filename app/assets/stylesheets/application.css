@@ -25,8 +25,6 @@ h7 {
   line-height: 100%;
 }
 
-
-
 h8 {
   font-family: 'Playfair Display', serif;
   font-size: 60px;
@@ -42,12 +40,20 @@ div.submenu {
   padding-left: 10px;
 }
 
+/* END TEXT */
+
 /* LINKS */
 
-/* mouse over link */
 a:hover {
-  color: #FD0CC8;
+  color: #666D63 !important;
 }
+
+a:link, :visited {
+  color: #BF5241;
+}
+
+/* END LINKS */
+
 
 /* DERIVE FINDER LAYOUT */
 
@@ -74,19 +80,25 @@ a:hover {
   clear: both;
 }
 
-/* IMAGES*/
+/* END DERIVE FINDER LAYOUT */
+
+/* IMAGES */
 img:hover {
 background-color: transparent;
 }
+
+/* END IMAGES */
+
+/* HEADER MENU */
 
 #menu-link{
   color: #black;
   font-family: 'Playfair Display', serif;
 }
 #menu-link:hover{
-  color: white;
-  background-color: #bf5241;
-  opacity: 0.5;
+  color: #85746B !important;
+  background-color: #D2BD9D;
+  /* opacity: 0.6; */
 }
 
 .above-header{
@@ -98,3 +110,31 @@ background-color: transparent;
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+/* END MENU */
+
+/* DESTINATION INDEX PAGE */
+
+.gallery {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 2fr));
+    grid-gap: 20px;
+}
+
+.gallery-image {
+    /* width: 400px;
+    height: 230px; */
+    box-shadow: 4px 4px 4px lightgray;
+    object-fit: cover;
+    object-position: 100% 0;
+    width:100%;
+    height: 170px;
+}
+
+.gallery-image:hover {
+    /* box-shadow: 5px 5px 5px gray; */
+    opacity: 0.7;
+}
+
+/* END DESTINATION INDEX PAGE */
