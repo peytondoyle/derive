@@ -13,18 +13,7 @@
   <div class="six wide column">
     <br><br>
     <h8>dérive Destinations.</h8>
-    <p>Learn more about all of the travel destinations dérive offers.
-      Click the image to learn more about each destination.</p>
+    <p>Learn more about all of the travel destinations dérive offers.<br>
+      Click each image to read about each destination.</p>
   </div>
 </div>
-
-
-
-<h1>Destinations</h1>
-<h3>Learn more about all of the travel destinations <i>Dérive</i> features.</h3>
-
-<ul>
-  <% @alpha_dest.each do |destination| %>
-  <li><p><%= link_to destination.city, destination_path(destination.id) %></p></li>
-  <% end %>
-</ul>
