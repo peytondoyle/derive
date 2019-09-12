@@ -29,13 +29,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    byebug
     @user.update(user_params)
     redirect_to user_path(@user)
-  end
-
-  def destroy
-
   end
 
   def login
