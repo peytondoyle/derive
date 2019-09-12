@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    session[:user] = @user.username
     redirect_to user_path(@user)
   end
 
