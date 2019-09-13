@@ -2,12 +2,12 @@
   <div class="eight wide column" style="padding-right: 0px;">
     <img src="<%= @destination.image %>" style="object-fit: cover; object-position: 100% 0; width:100%; height: 430px; padding-right: 5px;">
     <div class="">
-    <h7><%= @destination.city %>, <%= @destination.country %></h7>
+    &nbsp;&nbsp;<h7><%= @destination.city %>, <%= @destination.country %></h7>
 
     <% if @user.destinations.include?(@destination) %>
-      <button id="user-button"><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", data: {confirm: "Please confirm if you would like to remove #{@destination.city}, #{@destination.country} from your Dream Destinations"}%></button>
+      <button id="user-button"><%= link_to "Remove from your dérive Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", data: {confirm: "Please confirm that you would like to remove #{@destination.city}, #{@destination.country} from your dérive Destinations."}%></button>
     <% else %>
-      <button id="user-button"><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", data: {confirm: "Please confirm if you would like to add #{@destination.city}, #{@destination.country} to your Dream Destinations"}%></button>
+      <button id="user-button"><%= link_to "Add to your dérive Destinations", user_destinations_create_path(@destination), method: "POST", data: {confirm: "Please confirm that you would like to add #{@destination.city}, #{@destination.country} to your dérive Destinations."}%></button>
     <% end %>
 
 
@@ -16,7 +16,7 @@
 
   <div class="eight wide column">
     <br><br>
-    <h8>Learn more about <%= @destination.city %>.</h8>
+    <h8>Learn more about <br><%= @destination.city %>.</h8>
 
 
     <br><br>

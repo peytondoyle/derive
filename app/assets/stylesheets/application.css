@@ -153,9 +153,14 @@ background-color: transparent;
   margin-bottom: -10px;
 }
 
-/* WRAPPER FOR DESTINATION SHOW PAGE */
+/* END WRAPPER FOR DESTINATION SHOW PAGE */
+
+/* WRAPPER FOR DESTINATION SHOW PAGE ADD/REMOVE BUTTON */
 
 #user-button {
   float: right;
-  margin-top: 5px;
+  margin-top: 7px;
+  margin-right: 3px;
 }
+
+/* END WRAPPER FOR DESTINATION SHOW PAGE ADD/REMOVE BUTTON */
