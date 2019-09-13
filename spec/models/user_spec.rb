@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe User do
-<<<<<<< HEAD
  let(:attributes) do
    {
      name: "Carol Danvers",
@@ -9,18 +8,6 @@ describe User do
      password: "1234"
    }
  end
- it "is considered valid" do
-     expect(User.new(attributes)).to be_valid
-   end
- end
-=======
-  let(:attributes) do
-    {
-      name: "Carol Danvers",
-      username: "captainmarvel",
-      password: "1234"
-    }
-  end
 
   let(:missing_name) { attributes.except(:name) }
   let(:missing_username) { attributes.except(:username) }
@@ -44,4 +31,3 @@ describe User do
   end
 
 end
->>>>>>> testing

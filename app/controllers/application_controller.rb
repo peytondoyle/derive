@@ -3,12 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :authorized, except: [:home, :login, :new, :verify, :create]
 
   def home
-    random_destination
+    @random = random_destination
   end
 
   def random_destination
-    @destinations = Destination.all
-    @random = @destinations.sample
+    @random = Destination.all.sample
   end
 
   def search
