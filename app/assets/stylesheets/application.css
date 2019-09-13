@@ -24,7 +24,10 @@ h6 {
   font-weight: bold;
   line-height: 100%;
   padding: 0px;
-  margin: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-right: 7px;
+  margin-left: -2px;
 }
 
 h7 {
@@ -47,6 +50,14 @@ div.submenu {
   color: #ffffff;
   margin-top: -8px;
   padding-left: 10px;
+}
+
+h10 {
+  font-size: small;
+  font-family: 'Playfair Display', serif;
+  /* padding-top: 10px;
+  padding-right: 10px;
+  margin-left: 10px; */
 }
 
 /* END TEXT */
@@ -164,3 +175,7 @@ background-color: transparent;
 }
 
 /* END WRAPPER FOR DESTINATION SHOW PAGE ADD/REMOVE BUTTON */
+
+.content2 {
+  padding-left: 10px;
+}
