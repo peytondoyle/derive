@@ -53,7 +53,7 @@
     <% else %>
       <ul>
         <% @user.destinations.sort_by(&:city).each do |d| %>
-        <li><p><%= link_to "#{d.city}, #{d.country}", destination_path(d) %> <button><%= link_to "Remove", user_destination_path(UserDestination.find_by(user: @user.id, destination: d.id)), method: "DELETE" %></button></p></li>
+        <li><p><%= link_to "#{d.city}, #{d.country}", destination_path(d) %> <button><%= link_to "Remove", user_destination_remove_path(UserDestination.find_by(user: @user.id, destination: d.id)), method: "DELETE" %></button></p></li>
         <% end %>
       </ul>
     <% end %><br>
@@ -65,7 +65,7 @@
       <p>&nbsp;&nbsp;Based on your user profile, we recommend the following destinations.</p>
       <ul>
         <% @destinations.sort_by(&:city).each do |d| %>
-          <li><p><%= link_to "#{d.city}, #{d.country}", destination_path(d)%> <button><%= link_to "Add", user_destinations_create_path(d), method: "POST" %></button></p></li>
+          <li><p><%= link_to "#{d.city}, #{d.country}", destination_path(d)%> <button><%= link_to "Add", user_destination_add_path(d), method: "POST" %></button></p></li>
           <% end %> </ul>
     <% end %>
     <% end %>
