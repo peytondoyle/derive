@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
   end
 
   def search
-    @destinations = Destination.all
+    @destinations = Destination.all.sort_by(&:city)
     @search = [] #to allow for check if filters exists
   end
 
   def results
     @destinations = Destination.search(params[:search])
     #check for the scenario where search params are empty
-    if @destinations == Destination.all
+    if @destinations == Destination.all.sort_by(&:city)
       @search = []
     else
       @search = params[:search]

@@ -5,9 +5,9 @@
     <h7><%= @destination.city %>, <%= @destination.country %></h7>
 
     <% if @user.destinations.include?(@destination) %>
-      <button id="user-button"><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", onclick: "return confirm('#{@destination.city} was removed from your Dream Destinations!')"%></button>
+      <button id="user-button"><%= link_to "Remove from Dream Destinations", user_destination_path(UserDestination.find_by(user: @user.id, destination: @destination.id)), method: "DELETE", data: {confirm: "Please confirm if you would like to remove #{@destination.city}, #{@destination.country} from your Dream Destinations"}%></button>
     <% else %>
-      <button><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", onclick: "return confirm('#{@destination.city} was added to your Dream Destinations!')"%></button>
+      <button id="user-button"><%= link_to "Add to Dream Destinations", user_destinations_create_path(@destination), method: "POST", data: {confirm: "Please confirm if you would like to add #{@destination.city}, #{@destination.country} to your Dream Destinations"}%></button>
     <% end %>
 
 

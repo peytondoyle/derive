@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   def new
+    if session[:user]
+      redirect_to user_path(User.find_by(username: session[:user]))
+    end
     @user = User.new
   end
 
@@ -15,12 +18,22 @@ class UsersController < ApplicationController
   end
 
   def show
-    @destination = Destination.all
-    @user = User.find(params[:id])
-    if User.find_by(username: session[:user]) != @user
-      redirect_to home_path
+    #show pages require authentication for user to access
+    #therefore session[:user] will always be present when accessing a user show
+    logged_user = User.find_by(username: session[:user])
+    #check to prevent errors when a user tries to access a user id show page that
+    #does not exist
+    if !User.find_by(id: params[:id])
+      redirect_to user_path(logged_user)
     else
-      @destinations = @user.interested_destinations - @user.destinations
+      @user = User.find(params[:id])
+      loggeduser = User.find_by(username: session[:user])
+      #check to make sure logged in users can only see their own show page
+      if loggeduser != @user
+        redirect_to user_path(logged_user)
+      else
+        @destinations = @user.interested_destinations - @user.destinations
+      end
     end
   end
 

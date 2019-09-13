@@ -1,7 +1,7 @@
 <div class="ui grid">
   <div class="ten wide column" style="padding-right: 0px;">
     <div class="gallery">
-    <% @alpha_dest.each do |destination| %>
+    <% @destinations.each do |destination| %>
         <%= link_to destination_path(destination) do %>
             <%= image_tag destination.image, class: "gallery-image"%>
             <p style="text-align: center"><strong><%= destination.city %>, <%= destination.country %></strong></p>

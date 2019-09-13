@@ -8,7 +8,7 @@ class Destination < ApplicationRecord
 
   def self.search(searchparams)
     if searchparams[:interests].nil? && searchparams[:locales].nil? && searchparams[:english?].empty? && searchparams[:budget].empty?
-      return Destination.all
+      return Destination.all.sort_by(&:city)
     end
 
     destinations = []
