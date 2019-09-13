@@ -28,9 +28,9 @@
           <h6>Is English primarily spoken in <%= @destination.city %>?</h6>
         </div>
           <% if @destination.english == true %>
-            <p>&nbsp;&nbsp;Yes, English is the primary language spoken in <%= @destination.country %>.</p>
+            <p>Yes, English is the primary language spoken in <%= @destination.country %>.</p>
           <% else @destination.english == false %>
-            <p>&nbsp;&nbsp;No, English is not the primary language spoken in <%= @destination.country %>.</p>
+            <p>No, English is not the primary language spoken in <%= @destination.country %>.</p>
           <% end %>
       </div>
     </div>
@@ -44,13 +44,13 @@
           <h6>&nbsp;&nbsp;How expensive is <%= @destination.city %>?</h6>
         </div>
           <% if @destination.budget == "$" %>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $20-$50 a day in <%= @destination.city%>.</p>
+          <p>&nbsp;&nbsp;&nbsp;You should expect to spend $20-$50 a day in <%= @destination.city%>.</p>
           <% elsif @destination.budget == "$$" %>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $50-$100 a day in <%= @destination.city%>.</p>
+          <p>&nbsp;&nbsp;&nbsp;You should expect to spend $50-$100 a day in <%= @destination.city%>.</p>
           <% elsif @destination.budget == "$$$" %>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $100-$200 a day in <%= @destination.city%>.</p>
+          <p>&nbsp;&nbsp;&nbsp;You should expect to spend $100-$200 a day in <%= @destination.city%>.</p>
           <% elsif @destination.budget == "$$$$" %>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should expect to spend $200+ a day in <%= @destination.city%>.</p>
+          <p>&nbsp;&nbsp;&nbsp;You should expect to spend $200+ a day in <%= @destination.city%>.</p>
           <% end %>
       </div>
     </div>
@@ -58,15 +58,48 @@
     <br>
     <div class="wrapper">
     <div class="ui icon message" id="test">
-      &nbsp;&nbsp;&nbsp;&nbsp;<i class="suitcase icon"></i>
+      &nbsp;&nbsp;<i class="suitcase icon"></i>
       <div class="content">
         <div class="header">
           <h6>What is the ideal travel group for <%= @destination.city %>?</h6>
         </div>
-          <p>&nbsp;&nbsp;dérive's size recommendation for <%= @destination.city %> is <strong><%= @destination.group.downcase %></strong>.</p>
+          <p>dérive's size recommendation for <%= @destination.city %> is <strong><%= @destination.group.downcase %></strong>.</p>
       </div>
     </div>
     </div>
+    <br>
+    <div class="wrapper">
+    <div class="ui icon message" id="test">
+      &nbsp;&nbsp;&nbsp;&nbsp;<i class="tree icon"></i>
+      <div class="content2">
+        <div class="header">
+          <h6>What type of locales does <%= @destination.city %> offer?</h6>
+        </div>
+        <% dest_locales = @destination.locales.sort_by(&:name).map do |dest| %>
+          <% dest.name %>
+        <% end %>
+        <h10><%= dest_locales.join(", ") %></h10>
+
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="wrapper">
+    <div class="ui icon message" id="test">
+      &nbsp;&nbsp;<i class="flag icon"></i>
+      <div class="content2">
+        <div class="header">
+          <h6>What interests can you pursue in <%= @destination.city %>?</h6>
+        </div>
+        <% dest_interests = @destination.interests.sort_by(&:name).map do |dest| %>
+          <% dest.name %>
+        <% end %>
+        <h10><%= dest_interests.join(", ") %></h10>
+
+      </div>
+    </div>
+    </div>
+    <br>
 
 
 
