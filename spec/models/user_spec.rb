@@ -30,4 +30,8 @@ describe User do
     expect(User.new(missing_password)).not_to be_valid
   end
 
+  it "user is created without interests" do
+    expect(User.new(attributes).interests).to be_empty
+  end
+
 end
