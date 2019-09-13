@@ -9,20 +9,20 @@
     <h8>Please login.</h8>
 
     <% if session[:invalid] %>
-      <p>Apologies. In order to access the exclusive features dérive offers, please log in.</p>
+      <p style="color: red"><br>Apologies. In order to access the exclusive features dérive offers, please log in.</p>
     <% end %>
 
     <% if @user %>
       <% if @user.errors.any? %>
         <ul>
         <% @user.errors.full_messages.each do |m| %>
-        <li><%= m %>
-        <% end %> </li></ul>
+        <p style="color: red"><li><%= m %></li></p>
+        <% end %> </ul>
       <% end %>
     <% end %>
 
     <% if @error %>
-      <br><br> <%= @error %>
+      <br><br><p style="color: red"><%= @error %></p>
     <% end %>
 
 

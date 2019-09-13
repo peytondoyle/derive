@@ -1,8 +1,9 @@
 <% if @user.errors.any? %>
   <ul>
   <% @user.errors.full_messages.each do |m| %>
-  <li><%= m %>
-  <% end %> </li></ul>
+  <li style="color: red">  <p><%= m %>
+  <% end %>
+  </p></li></ul>
   <% end %>
 
 

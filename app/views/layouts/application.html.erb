@@ -34,7 +34,7 @@
         <% end %>
 
         <% if session[:user] %>
-        <%= link_to "Logout", logout_path, method: "delete", data: {confirm: 'Please confirm logout.'}, class: "item", id: "menu-link" %>
+        <%= link_to "Logout", logout_path, method: "delete", data: {confirm: "Please confirm that you'd like to logout."}, class: "item", id: "menu-link" %>
         <% else %>
         <a class="item" id="menu-link" href=<%= login_path %>>Login</a>
         <% end %>
