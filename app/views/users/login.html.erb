@@ -28,10 +28,19 @@
 
     <%= form_tag "/login", method: "post" %><br>
       <p><strong><%= label_tag :username %><br></strong>
-      <%= text_field_tag :username %><br>
+      <% if @index == 2 %>
+        <%= text_field_tag :username, @temp %><br>
+      <% else %>
+        <%= text_field_tag :username %><br>
+        <% end %>
       <p><strong><%= label_tag :password %></strong><br>
-      <%= password_field_tag :password %><br><br></p>
+      <% if @index == 1 %>
+        <%= password_field_tag :password, @temp %><br><br></p>
+      <% else %>
+        <%= password_field_tag :password %><br><br></p>
+      <% end %>
       <%= submit_tag "Login" %><br><br>
+
 
       <h7>No dérive account?</h7>
       <p>No problem. Click <a href="/users/new">here</a> to make your dérive account.</p>

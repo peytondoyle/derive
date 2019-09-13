@@ -61,7 +61,13 @@ class UsersController < ApplicationController
   def verify
     #check to see if any values are entered before hitting DB
     if login_fields
-      @error = login_fields
+      @error = login_fields[1]
+      @index = login_fields[0]
+        if @index == 1
+          @temp = params[:password]
+        elsif @index == 2
+          @temp = params[:username]
+        end
       render :login
     #once all values are entered run verify process
     else
@@ -84,11 +90,11 @@ class UsersController < ApplicationController
 
   def login_fields
     if params[:username].empty? && params[:password].empty?
-        return "Please enter a username and password."
+        return [0,"Please enter a username and password."]
     elsif params[:username].empty?
-        return "Please enter a username."
+        return [1,"Please enter a username."]
     elsif params[:password].empty?
-        return "Please enter a password"
+        return [2,"Please enter a password"]
     else
         return false
     end
